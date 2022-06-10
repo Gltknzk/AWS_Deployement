@@ -4,14 +4,14 @@ import numpy as np
 from PIL import Image
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 st.title("Auto Price Prediction")
-st.text('This is some text.')
-st.markdown("Streamlit is **_really_ cool** :+1:")
-st.markdown("# This is a markdown")
-st.markdown("## This is a markdown")
-st.header('This is a header')
-st.subheader('This is a subheader')
-st.success("This is a success masseage")
-st.info("this is a purely info message")
+st.text('This website aims to give you a predicted value for your input')
+#st.markdown("Streamlit is **_really_ cool** :+1:")
+#st.markdown("# This is a markdown")
+#st.markdown("## This is a markdown")
+#st.header('This is a header')
+#st.subheader('This is a subheader')
+#st.success("This is a success masseage")
+#st.info("this is a purely info message")
 #date input
 import datetime
 today=st.date_input("Today is")
@@ -87,11 +87,11 @@ the_time=st.time_input("The time is", datetime.time(8,45))#st.error("This is an 
 import pickle
 filename = 'g11_model'
 model = pickle.load(open(filename, 'rb'))
-make_model = st.radio("Select a model",("Audi A3","Renault Clio","Opel Astra","Renault Duster"))
-Gearing_Type=st.radio("Automatic Transmission or Manual Transmission", ["Manual", "Automatic", "Semi-Automatic"])
-km = st.sidebar.number_input("Select mileage", min_value=5, max_value=400000,step=500)
-hp_kW = st.sidebar.number_input("Select Horse Power", min_value=40, max_value=350,step=20)
-age = st.sidebar.number_input("Select Age of the Car", min_value=0, max_value=4,step=1)
+make_model = st.sidebar.radio("Select a model",("Audi A3","Renault Clio","Opel Astra","Renault Duster"))
+Gearing_Type=st.sidebar.radio("Automatic Transmission or Manual Transmission", ["Manual", "Automatic", "Semi-Automatic"])
+km = st.sidebar.slider("Select mileage", min_value=5, max_value=400000,step=500)
+hp_kW = st.sidebar.slider("Select Horse Power", min_value=40, max_value=350,step=20)
+age = st.sidebar.slider("Select Age of the Car", min_value=0, max_value=4,step=1)
 my_dict = {
     "Gearing_Type": Gearing_Type,
     "make_model": make_model,
